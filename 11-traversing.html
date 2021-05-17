@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Traversing</title>
+</head>
+<body>
+    <table class="table table-bordered mt-5">
+        <tr>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+            <td>td4</td>
+            <td>td5</td>
+        </tr>
+        <tr>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+            <td>td4</td>
+            <td>td5</td>
+        </tr>
+        <tr>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+            <td>td4</td>
+            <td>td5</td>
+        </tr>
+        <tr>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+            <td>td4</td>
+            <td>td5</td>
+        </tr>
+        <tr>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+            <td>td4</td>
+            <td>td5</td>
+        </tr>
+
+
+    </table>
+    <!-- <div class="container">
+        <div class="row">
+            <ul class="level-1">
+                <li class="item-1">item1</li>
+                <li class="item-2">item2
+                    <ul class="level-2">
+                        <li class="item-01">item01</li>
+                        <li class="item-02">item02
+                            <ul class="level-3">
+                                <li class="item-001">item001</li>
+                                <li class="item-002">item002</li>
+                                <li class="item-003">item003</li>
+                            </ul>
+                        </li>
+                        <li class="item-03">item03</li>
+                    </ul>
+                </li>
+                <li class="item-3">item3</li>
+            </ul>
+        </div>
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // $('td').eq(3).css('background','pink'); 
+        $('td').css('background','tomato').odd().css('background','pink').eq(3).css('background','lightblue'); //odd裡面的第3個是lightblue(從0開始)
+        
+
+    </script>
+</body>
+</html>

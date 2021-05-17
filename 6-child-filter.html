@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child filter</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <span>hihi</span>
+            <div class="box">box1</div>
+            <span>hihi</span>
+            <span>hihi</span>
+            <div class="box">box2</div>
+            <div class="box">box3</div>
+            <div class="box">box4</div>
+            <div class="box">box5</div>
+            
+            <div class="box">box6</div>
+            <div class="box">box7</div>
+            <div class="box">box8
+                <span>hihi</span> 
+                <span>hihi</span>
+            </div>
+            <div class="box">box9</div>
+            <div class="box">box10</div>
+            <div class="box">box11</div>
+            <div class="box">box12</div>
+        </div>
+        <div class="row">
+            <span>hihi</span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // 冒號前面沒有加東西的話, 是把全部的東西都拿來過濾
+        // 所以改變架構的話程式可能需要重寫
+        // $('.box:last-child').css('background','pink');       
+        // $('.box:nth-child(6)').css('background','pink'); 
+        // $('span:first-of-type').css('background','pink');
+        $('.box:nth-child(3)').css('background','red'); //架構上並沒有既是.box又是第3個小孩     
+        $('.box:nth-child(5)').css('background','blue');  
+        $('span:only-child').css('background','lightgreen'); //既是span且是獨生子
+
+    </script>
+</body>
+</html>
