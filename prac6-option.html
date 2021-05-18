@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>option selector</title>
+</head>
+<body>
+
+    
+    <select name="county" id="county">
+        <option id="opt0" value="0">基隆</option>
+        <option id="opt1" value="1">台北</option>
+        <option id="opt2" value="2">新北</option>
+    </select>
+
+    <select name="district" id="district">
+        <!-- <option value=""></option> -->
+    </select>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        let districtObj =[
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店']  
+        ];
+
+        $('#county').change(function(){
+            console.log($(this).val());
+            $('#district').append(`<option>${$(this).val()}</option>`);
+            // $('#district').append($("<option></option>")
+            //     .attr("value", districtObj[$(this).val()][0])
+            //     .text(value));
+
+        });
+
+        // $.each(selectValues, function(key, value) {   
+        //     $('#mySelect')
+        //         .append($("<option></option>")
+        //         .attr("value", key)
+        //         .text(value)); 
+        // });
+               
+    </script>
+
+
+</body>
+</html>
