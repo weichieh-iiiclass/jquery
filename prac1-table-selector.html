@@ -48,10 +48,13 @@
     <script>
         $("input[type='checkbox']").change(function () {
             if ($(this).is(":checked")) {
-                $(this).parent().parent().addClass("pinkBackground");
+                // $(this).parent().parent().addClass("pinkBackground");
                 // $(this).prevUntil)('tr').addClass("pinkBackground");
+                $(this).closest('tr').addClass("pinkBackground");
+
             } else {
-                $(this).parent().parent().removeClass("pinkBackground");
+                // $(this).parent().parent().removeClass("pinkBackground");
+                $(this).closest('tr').removeClass("pinkBackground");
             }
         });
     </script>

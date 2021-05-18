@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="first">
+        <li class="a1">list item 1
+            <ul>
+                <li>123
+                    <ul>
+                        <li class="inside">abc</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>list item 2</li>
+        <li class="a2">list item 3</li>
+      </ul>
+      <ul class="second">
+        <li class="b1">list item 1</li>
+        <li>list item 2</li>
+        <li class="b2">list item 3</li>
+      </ul>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <script>
+        // $('ul.first')
+        //     .find('.a1')
+        //     .parent()
+        //     .next()
+        //     .find('.b1')
+            // .css('border', '1px solid blue'); 
+
+        // 改了架構後
+        $('ul.first')
+            .find('.inside')
+            .css('border', '1px solid red')
+            .end() //任務結束後回到上一個選取狀態(回到上一個選取位置) prevObject
+            .css('border', '1px solid pink')
+            .next()
+            .find('.b1')
+            .css('border', '1px solid blue');      
+      </script>
+      
+</body>
+</html>
