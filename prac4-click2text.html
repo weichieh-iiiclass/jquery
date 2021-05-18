@@ -11,40 +11,43 @@
     <div class="container">
         <div class="row">
             <form>
-                <div class="form-group">
-                    <label for="exampleInputUsername">Username</label>
-                    <input type="email" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Enter Username">
+                <div class="form-group mt-5">
+                    <label for="InputUsername">Username</label>
+                    <input type="email" class="form-control" id="InputUsername" aria-describedby="emailHelp" placeholder="Enter Username">
                     <small id="UsernameHelp" class="form-text text-muted">Enter your username.</small>
                   </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <div class="form-group mt-4">
+                  <label for="InputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <div class="form-group mt-4">
+                  <label for="InputPassword1">Password</label>
+                  <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
                 </div>
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="form-group mt-4 form-check">
+                  <input type="checkbox" class="form-check-input" id="Check1">
+                  <label class="form-check-label" for="Check1">Check me out</label>
                 </div>
+                <!-- auto input -->
                 <button type="button" class="btn btn-primary" id="autoInput">Auto input</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
         </div>
     </div>
 
-    <div class="box">123</div>
+    <!-- <div class="box">123</div> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $('#autoInput').click(function() {
-            $('.box').text('456');
-
+            $('#InputUsername').val('jessica');
+            $('#InputEmail1').val('jessica@gmail.com');
+            $('#InputPassword1').val('jessica');
+            $('#Check1').attr('checked', 'checked');
         });
         // $('#box').text('456');
-        // $('#exampleInputUsername').val('456');          
+        // $('#InputUsername').val('456');          
     </script>
     
 </body>
