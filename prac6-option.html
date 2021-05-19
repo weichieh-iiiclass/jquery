@@ -27,25 +27,24 @@
             ['中正', '大安', '信義'],
             ['蘆洲', '三重', '新店']  
         ];
-
+        
+        for (let i=0; i<districtObj[0].length; i++){
+            $('#district').append(`<option>${districtObj[0][i]}</option>`);
+        }
+        
         $('#county').change(function(){
             console.log($(this).val());
-            $('#district').append(`<option>${$(this).val()}</option>`);
-            // $('#district').append($("<option></option>")
-            //     .attr("value", districtObj[$(this).val()][0])
-            //     .text(value));
+            // $('#district').find('option').remove().end()
+            // .append(`<option>${districtObj[$(this).val()][0]}</option>`);
+
+            $('#district').find('option').remove().end();
+            for (let i=0; i<districtObj[$(this).val()].length; i++){
+                $('#district').append(`<option>${districtObj[$(this).val()][i]}</option>`);
+            }
+            
 
         });
-
-        // $.each(selectValues, function(key, value) {   
-        //     $('#mySelect')
-        //         .append($("<option></option>")
-        //         .attr("value", key)
-        //         .text(value)); 
-        // });
                
     </script>
-
-
 </body>
 </html>
