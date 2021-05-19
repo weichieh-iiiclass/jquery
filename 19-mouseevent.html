@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse event</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Click</div>
+    <a href="#" type="submit">submit</a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        //監聽事件:監聽滑鼠的click事件,只要滑鼠有被click就執行function
+        //檢查工具檢查hover的時候,記得不能開到手機模式的按鈕
+        $('.box').click(function(){
+            console.log('click');
+        });       
+
+        $('.box').dblclick(function(){
+            console.log('dbl click');
+        });
+
+        $('.box').contextmenu(function(){
+            console.log('contextmenu');
+        });
+        
+        $('.box').mousedown(function(){
+            console.log('mousedown');
+        });
+        $('.box').mouseup(function(){
+            console.log('mouseup');
+        });
+
+        $('.box').mouseenter(function(){
+            console.log('mouseenter');
+        });
+        $('.box').mouseleave(function(){
+            console.log('mouseleave');
+        });
+
+        $('.box').hover(function(){
+            console.log('hover');
+        });
+
+        //a link
+        $('a').click(function(event){
+            console.log(event.target);
+            event.preventDefault();
+            event.stopPropagation();
+            console.log('click');
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>
