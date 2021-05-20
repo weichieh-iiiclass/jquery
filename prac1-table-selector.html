@@ -47,6 +47,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
+        //checked 
+
+
+        // 方法一
+        // $(this).attr('checkbox') 只寫一個代表拿他的值 寫兩個代表給值
+        // 例如 $(this).css('width') 是拿值
+        // $(this).css('width','500px') 是給值
         $("input[type='checkbox']").change(function () {
             if ($(this).is(":checked")) {
                 // $(this).parent().parent().addClass("pinkBackground");
@@ -57,6 +64,28 @@
                 // $(this).parent().parent().removeClass("pinkBackground");
                 $(this).closest('tr').removeClass("pinkBackground");
             }
+        });
+
+        // 方法二
+        // $(':checkbox')也可以
+        $('input[type="checkbox"]').change( function(){
+            $('tr').css('background', 'transparent');
+            $('input:checked').closest('tr').css('background',pink);
+        });
+
+        // 方法三
+        $('input[type="checkbox"]').change( function(){
+            // https://cythilya.github.io/2017/09/10/jquery-attr-vs-prop/
+            // attr只能抓裡面是否有那種屬性,但無法得知屬性現在的狀態(無法得知此時是否被勾選)
+            // console.log('attr', $(this).attr('checked'));
+            // prop是可以得知此時checked值的狀態(是否被勾選)
+            // console.log('prop', $(this).prop('checked'));
+            if ($(this).prop('checked') === 'true'){
+                $(this).closest('tr').css('background','pink');
+            } else {
+                $(this).closest('tr').css('background','transparent');
+            }
+
         });
     </script>
 

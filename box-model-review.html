@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box model</title>
+    <style>
+        body {
+            /* 邊界重疊 margin collapse */
+            margin: 8px;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: 3px solid red;
+            margin: 10px;
+    
+            background-color: #ccc;
+            box-sizing: content-box;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: 3px solid red;
+            margin: 10px;
+    
+            background-color: #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">content-box</div>
+    <div class="box2">border-box</div>
+</body>
+
+</html>

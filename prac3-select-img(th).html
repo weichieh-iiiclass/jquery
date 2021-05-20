@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>select img</title>
+    <style>
+        .row {
+            width: 800px;
+        }
+
+        .pic {
+            width: 100%;
+            background-color: lightpink;
+            border-radius: 50%;
+            /* box-sizing預設是content-box */
+            border: 5px solid transparent; 
+            /* 直接預設有透明的border 就不會在點擊的時候才變小 */
+            
+        }
+        /* .col {
+            box-sizing: border-box;
+        } */
+
+        .blueBorder {
+            border: 5px solid #46A3FF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5 mx-auto">
+            <div class="col">
+                <img class="pic" src="./images/svg/20210505221043.svg" alt="">
+            </div>
+            <div class="col">
+                <img class="pic" src="./images/svg/20210505221135.svg" alt="">
+            </div>
+            <div class="col">
+                <img class="pic" src="./images/svg/20210505221246.svg" alt="">
+            </div>
+            <div class="col">
+                <img class="pic" src="./images/svg/20210505221558.svg" alt="">
+            </div>
+            <div class="col">
+                <img class="pic" src="./images/svg/20210505221641.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        $('.pic').click(function () {
+            $(this).addClass('blueBorder').parent().siblings().children().removeClass('blueBorder');
+        });
+    </script>
+
+</body>
+
+</html>

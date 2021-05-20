@@ -37,7 +37,7 @@
             // $('#district').find('option').remove().end()
             // .append(`<option>${districtObj[$(this).val()][0]}</option>`);
 
-            $('#district').find('option').remove().end();
+            $('#district').find('option').remove();
             for (let i=0; i<districtObj[$(this).val()].length; i++){
                 $('#district').append(`<option>${districtObj[$(this).val()][i]}</option>`);
             }
