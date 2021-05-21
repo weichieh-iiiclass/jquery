@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>off</title>
+</head>
+<body>
+    <button class="btn btn-primary" id="btnHi">hi</button>
+    <button class="btn btn-primary" id="on">on</button>
+    <button class="btn btn-primary" id="off">off</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        let index = 0;
+        
+        const sayHi = function(){
+            console.log('hi',index);
+            index++;
+        }
+
+        // 每按一次on，都會多綁定一次所以會多console.log一次
+        $('#on').click(function(){
+            console.log('on clicked');
+            $(btnHi).on('click',sayHi); //sayHi不用加() 因為是要綁定 還沒有要執行sayHi()
+        }); 
+        // 解除綁定的時候，綁定的人跟function要一樣
+        // 可以一次清掉所有的綁定    
+        $('#off').click(function(){
+            console.log('off clicked');
+            $(btnHi).off('click',sayHi);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <button id="add" class="btn btn-primary" >ADD</button>
+        </div>
+
+        <p class="mt-3">清單</p>
+
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <!-- 目前不存在item 3 的DOM節點，所以用.click綁定不到此事件 -->
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // 普通綁定，無法綁到動態產生的物件
+        // $('li').click(function(){
+        //     console.log('li clicked');
+        // });
+
+        // 從原本存在的節點ul(必須是直系上層,爸爸或爺爺或更上層)，去綁定(下層)動態產生的li
+        $('ul').on('click', 'li', function(){
+            console.log('li clicked');
+        });
+        
+
+        let index=3;
+        $('#add').click(function(){
+            $('ul').append(`<li>item ${index}</li>`);
+            index++;
+        });
+    </script>
+</body>
+</html>
