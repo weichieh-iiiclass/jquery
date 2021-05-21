@@ -36,7 +36,9 @@
             console.log($(this).val());
             // $('#district').find('option').remove().end()
             // .append(`<option>${districtObj[$(this).val()][0]}</option>`);
-
+            
+            //清空方法1: $('#district').empty();
+            //清空方法2: $('#district option').remove();
             $('#district').find('option').remove();
             for (let i=0; i<districtObj[$(this).val()].length; i++){
                 $('#district').append(`<option>${districtObj[$(this).val()][i]}</option>`);

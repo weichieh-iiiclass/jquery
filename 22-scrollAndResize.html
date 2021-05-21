@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll and resize</title>
+    <style>
+        body {
+            height: 5000vh;
+            width: 5000vw;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function(){
+            //往下滑動的時候往右走 會用到
+            console.log('scrollTop',$(this).scrollTop()); //scroll bar距離上面的距離
+            console.log('scrollLeft',$(this).scrollLeft()); //scroll bar距離左邊的距離
+        });
+        
+        $(window).resize(function(){
+            //RWD
+            console.log('hi width', $(this).width());
+            console.log('hi height', $(this).height());
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7</title>
+    <style>
+        body {
+            margin: 0;
+            height: 300vh;
+        }
+        .wrap{
+            width: 100%;
+            height: 50px;
+            background-color: #ccc;
+            position: fixed;
+        }
+        .box {
+            background-color: pink;
+            height: 50px;
+            width: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        $(window).scroll(function(){
+
+            // $('.box').css('width',$(this).scrollTop()/$(body).height() );
+            // $('.box').css('width', `${ Math.floor( ($(this).scrollTop()+$(this).height())*100 /$(body).height() ) }%`);
+            $('.box').css('width', );
+
+            const scrollTop = $(this).scrollTop(); //紫色
+            const websiteHeight = $('body').height(); //黃色
+            const windowHeight = $(window).height(); //綠色
+
+            // const persent = Math.floor(( (scrollTop+windowHeight)/websiteHeight )*100 ); //錯的
+            const persent = Math.floor(( scrollTop/(websiteHeight-windowHeight) )*100 );
+
+            console.log(persent);
+            
+
+            $('.box').css('width', persent + "%" )
+        });
+
+
+        // $(window).scroll(function(){
+
+        //     // console.log('scrollTop',$(this).scrollTop(),'height',$(this).height()); 
+        //     //最頂:scrollTop=0 height=914
+        //     //最底:scrollTop=1828 height=914
+
+        //     // console.log($(this).scrollTop()*50/$(this).height());
+
+        //     // $('.box').css('width', `${$(this).scrollTop()*100/2/$(this).height()}%`);
+            
+        // });       
+    </script>
+</body>
+</html>
