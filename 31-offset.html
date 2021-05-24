@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        body{
+            margin: 200px 50px;
+        }
+        .height {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="height"></div>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        console.log('offset', $('.box').offset());   
+        
+        // 當視窗移到offset多少時，執行某些動作
+        $(window).scroll(function () {
+            console.log('offse', $('.box').offset());
+            console.log('window height', $(window).height());
+            console.log('window scrollTop', $(this).scrollTop());
+            if ($(window).height() + $(this).scrollTop() >= $('.box').offset().top + 200) {
+                $('.box').css('background', 'red');
+            }
+        });
+        // 給值
+        // $('.box').offset({
+        //     top: '50',
+        //     left: '100',
+        // });
+
+    </script>
+</body>
+</html>

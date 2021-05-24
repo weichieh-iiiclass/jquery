@@ -69,26 +69,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
+        // 方法一: 用class
+        // $('.color').click(function(){
+        //     // console.log('this',$(this));
+        //     if($(this).hasClass('color1')){
+        //         console.log('color1');
+        //         $('.box').addClass('color1').removeClass('color2 color3');
 
-        $('.color').click(function(){
-            // console.log('this',$(this));
-            if($(this).hasClass('color1')){
-                console.log('color1');
-                $('.box').addClass('color1').removeClass('color2 color3');
-
-            }
-            if($(this).hasClass('color2')){
-                console.log('color2');
-                $('.box').addClass('color2').removeClass('color1 color3');
-            }
-            if($(this).hasClass('color3')){
-                console.log('color3');
-                $('.box').addClass('color3').removeClass('color2 color1');
-            }
-        });
-        // $('.color1').click(function(){
-        //     $('.box').addClass('color1');
+        //     }
+        //     if($(this).hasClass('color2')){
+        //         console.log('color2');
+        //         $('.box').addClass('color2').removeClass('color1 color3');
+        //     }
+        //     if($(this).hasClass('color3')){
+        //         console.log('color3');
+        //         $('.box').addClass('color3').removeClass('color2 color1');
+        //     }
         // });
+
+        // 方法二: 用.css('background') 是改inline style 權重比較重
+        $('.color').click(function(){
+            const bgColor = $(this).css('background');
+            $('.box').css('background', bgColor)
+        });
+
+        // 方法三:
+        // const color = document.querySelectorAll('.color');
+        // const box = document.querySelector('.box');
+
+        
 
         // 有bug
         // for (let i = 1; i < 4; i++) {
