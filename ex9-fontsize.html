@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>ex9 fontsize</title>
+    <style>
+        .fontS {
+            font-size: 0.8rem;
+        }
+        .fontM {
+            font-size: 1rem;
+        }
+        .fontL {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group">
+                <button id="fontS" class="btn btn-info btn-s">S</button>
+                <button id="fontM" class="btn btn-info btn-m" active>M</button>
+                <button id="fontL" class="btn btn-info btn-l">L</button>
+            </div>
+        </div>
+    </div>
+    <h2>jQuery</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, minus ipsam itaque repudiandae eum numquam ad quas, libero deleniti omnis quo voluptatibus obcaecati, earum nam cum saepe aliquid animi placeat.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, minus ipsam itaque repudiandae eum numquam ad quas, libero deleniti omnis quo voluptatibus obcaecati, earum nam cum saepe aliquid animi placeat.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, minus ipsam itaque repudiandae eum numquam ad quas, libero deleniti omnis quo voluptatibus obcaecati, earum nam cum saepe aliquid animi placeat.</p>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('#fontS').on('click', function(){
+            $('p').removeClass();
+            $('p').addClass('fontS');
+            $('.btn').removeClass('active');
+            $('#fontS').addClass('active');
+            // $('p').addClass('fontS').removeClass('fontM').removeClass('fontL');
+        });
+        $('#fontM').on('click', function(){
+            $('p').removeClass();
+            $('p').addClass('fontM');
+            $('.btn').removeClass('active');
+            $('#fontM').addClass('active');
+            // $('p').addClass('fontM').removeClass('fontS').removeClass('fontL');
+        });
+        $('#fontL').on('click', function(){
+            $('p').removeClass();
+            $('p').addClass('fontL');
+            $('.btn').removeClass('active');
+            $('#fontL').addClass('active');
+            // $('p').addClass('fontL').removeClass('fontM').removeClass('fontS');
+        });
+
+
+        // $('.btn').click(function(){
+        //     console.log('this',$(this));
+        //     if($(this).hasClass('btn-s')){
+        //         console.log('S btn');
+        //     }
+        //     if($(this).hasClass('btn-m')){
+        //         console.log('M btn');
+        //     }
+        //     if($(this).hasClass('btn-l')){
+        //         console.log('L btn');
+        //     }
+        // });
+
+        // 如果只有text不同，沒有class id name可以區分
+        // $('.btn').click(function(){
+        //     console.log('this',$(this));
+        //     if($(this).is(":contains('S')")){
+        //         console.log('S btn');
+        //     }
+        //     if($(this).is(":contains('M')")){
+        //         console.log('M btn');
+        //     }
+        //     if($(this).is(":contains('L')")){
+        //         console.log('L btn');
+        //     }
+        // });
+    </script>
+</body>
+</html>

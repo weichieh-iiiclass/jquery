@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>ex10 color selector</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+        }
+
+        .wrap {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+        }
+
+        .color {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        .color1 {
+            background-color: pink;
+        }
+
+        .color2 {
+            background-color: lightblue;
+        }
+
+        .color3 {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="box"></div>
+            </div>
+            <div class="col-6">
+                <div class="wrap d-flex">
+                    <div class="color color1"></div>
+                    <div class="color color2"></div>
+                    <div class="color color3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="d-flex">
+
+        <div class="box m-2"></div>
+        <div class="wrap m-2 d-flex">
+            <div class="color color1"></div>
+            <div class="color color2"></div>
+            <div class="color color3"></div>
+        </div>
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        $('.color').click(function(){
+            // console.log('this',$(this));
+            if($(this).hasClass('color1')){
+                console.log('color1');
+                $('.box').addClass('color1').removeClass('color2 color3');
+
+            }
+            if($(this).hasClass('color2')){
+                console.log('color2');
+                $('.box').addClass('color2').removeClass('color1 color3');
+            }
+            if($(this).hasClass('color3')){
+                console.log('color3');
+                $('.box').addClass('color3').removeClass('color2 color1');
+            }
+        });
+        // $('.color1').click(function(){
+        //     $('.box').addClass('color1');
+        // });
+
+        // 有bug
+        // for (let i = 1; i < 4; i++) {
+        //     $(`.color${i}`).click(function () {
+        //         // $('.box').removeClass();
+        //         $('.box').addClass(`color${i}`);
+        //     });
+        // }
+
+    </script>
+</body>
+
+</html>

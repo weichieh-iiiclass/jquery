@@ -55,25 +55,77 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
-        //滑鼠點按鈕
-        $('#up').click(function(){
-            $('.box').css('top','-=20');
-        }); 
-        $('#down').click(function(){
-            $('.box').css('top','+=20');
-        }); 
-        $('#left').click(function(){
-            $('.box').css('left','-=20');
-        }); 
-        $('#right').click(function(){
-            $('.box').css('left','+=20');
-        });      
+
+        //2021-05-24 早上全 -1:50:XX
+        const map = {};
+        const addObj = function (e) {
+            console.log('e.type', e.type);
+            map[e.which] = e.type; //在map裡面的第which格存現在key的狀態(type:up或down)
+            console.log('map', map);
+            if (map[39] === "keydown" && map[40] === "keydown") {
+            //如果是which 39和40被同時按下的話，做...
+
+            }
+        }
+        $(document).on('keydown', (event) => addObj(event)) //監聽document裡的鍵盤keydown事件，執行(event) => addObj(event)，event是被keydown的鍵盤
+        $(document).on('keyup', (event) => addObj(event)) //監聽document裡的鍵盤keyup事件，執行(event) => addObj(event)，event是被keyup的鍵盤
+
+        const spead = 20;
 
         const wrapW = parseInt($('.wrap').css('width'));
         const wrapH = parseInt($('.wrap').css('height'));
-
         const boxW = parseInt($('.box').css('width'));
         const boxH = parseInt($('.box').css('height'));
+
+        const leftRangeMax = wrapW-boxW;
+        const leftRangeMin = 0;
+        const topRangeMin = 0;
+        const topRangeMax = wrapH-boxH;
+
+        // let boxLeftDist = parseInt($('.box').css('left'));
+        // let boxTopDist = parseInt($('.box').css('top'));
+
+        //持續click按鈕
+        // while(寫迴圈?)
+        let myInterval;
+        $('#right').mousedown(function(){
+            console.log(boxLeftDist,leftRangeMax);
+            myInterval = setInterval(()=>{
+                // if (boxLeftDist >=leftRangeMax) return;  這樣沒辦法持續更新boxLeftDist的值，會出錯
+                if(parseInt($('.box').css('left')) >= leftRangeMax) return;
+                $('.box').css('left',`+=${spead}`);
+            }, 100);
+        });
+        
+        $('#right').mouseup(function(){
+            clearInterval(myInterval);
+        });
+        
+
+        //滑鼠點按鈕
+        
+        // $('#right').click(function(){
+        //     if( boxLeftDist < leftRangeMax){
+        //         $('.box').css('left','+=' + spead);
+        //     }
+        // });  
+        $('#left').click(function(){
+            if( boxLeftDist > leftRangeMin){
+                $('.box').css('left','-=' + spead);
+            }
+        }); 
+        $('#up').click(function(){
+            if( boxTopDist >topRangeMin){
+                $('.box').css('top','-=' + spead);
+            }
+        }); 
+        $('#down').click(function(){
+            if( boxTopDist < topRangeMax){
+                $('.box').css('top','+=' + spead);
+            }
+        }); 
+        
+            
 
 
         $(document).on('keydown', function(e){
@@ -83,25 +135,25 @@
             if (e.which === 39){
                 // if( $('.box').css('left') < 800){  //因為有px
                 if( parseInt($('.box').css('left')) < (wrapW-boxW)){  //使用parseInt擷取px前面的數字
-                    $('.box').css('left','+=20');
+                    $('.box').css('left','+='+ spead);
                 }
             }
             //鍵盤左鍵
             if (e.which === 37){
                 if( parseInt($('.box').css('left')) >0){
-                    $('.box').css('left','-=20');
+                    $('.box').css('left','-='+ spead);
                 }
             }
             //鍵盤上鍵
             if (e.which === 38){
                 if( parseInt($('.box').css('top')) >0){
-                    $('.box').css('top','-=20');
+                    $('.box').css('top','-='+ spead);
                 }
             }
             //鍵盤下鍵
             if (e.which === 40){
                 if( parseInt($('.box').css('top')) < (wrapH-boxH)){
-                    $('.box').css('top','+=20');
+                    $('.box').css('top','+='+ spead);
                 }
             }
 
