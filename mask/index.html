@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <title>mask</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h5> Hi, <訪客> 歡迎來到資策會口罩銷售平台</h5>
+        <h6>請選擇你想要購買的口罩及數量：</h6>
+        <div class="row" id="mask">
+            <!-- <div class="col-lg-3 col-sm-6 col-12 mt-3">
+                <div class="card">
+                    <img src="./images/item-1.jpg" class="card-img-top" alt="">
+
+                    <div class="card-body py-0">
+                        <h5>
+                            XXX口罩
+                        </h5>
+                        <div class="d-flex justify-content-between">
+                            <p>$1234</p>
+                            <div class="btn-wrap">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-primary"> 
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-lg-4">
+                <div id="cart" class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">購物車</h5>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>品名</th>
+                                    <th>單價</th>
+                                    <th>數量</th>
+                                </tr>
+                            </thead>
+                            <!-- todo -->
+                            <tbody id="cart-list">
+                                <!-- <tr>
+                                    <td>XXX</td>
+                                    <td>$3000</td>
+                                    <td>+ -</td>
+                                </tr> -->
+            
+                            </tbody>
+                        </table>
+
+                        <span id="totalPrice" style="float: right;"></span>
+                        <button class="btn btn-info btn-block">結帳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        function getData() {
+            $.ajax({ //非同步的js and HTML
+                method: "GET",
+                url: "./mask.json",
+                dataType: "json"
+            })
+                .done(function (data) {
+                    console.log('data', data);
+                    data.forEach(function (item) {
+                        // append樣板字串
+                        $('#mask').append(` 
+                        <div class="col-lg-3 col-sm-6 col-12 mt-3">
+                            <div class="card">
+                                <img src="./images/${item.image}" class="card-img-top" alt="">
+                                <div class="card-body py-0">
+                                    <h5 class="card-title" data-name="${item.name}">
+                                        ${item.name}
+                                    </h5>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-price" data-price="${item.price}">$${item.price}</p>
+                                        <div class="btn-wrap">
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-heart"></i>
+                                            </button>
+                                            <button class="btn btn-primary"> 
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>`);
+                    });
+                })
+        }
+
+        getData();
+
+        //動態加進去的
+        $(document).on('click', '.fa-shopping-cart', function(){
+            const name = $(this).closest('.card-body').find('.card-title').data('name');
+            const price = $(this).closest('.card-body').find('.card-price').data('price');
+            console.log('name', name);
+            console.log('price', price);
+            
+            if($('#cart-list tr').length === 0){ //代表是新的
+                appendNewList(name, price);
+            } else {
+                let isExist = false;
+                $('#cart-list tr').each(function(){
+                    const listName = $(this).find('.cart-name').text();
+
+                    if(listName === name){
+                        // todo, number ++;
+                        isExist = true;
+                    }
+                });
+
+                if(!isExist) appendNewList(name, price);
+            }
+
+        });
+
+        function appendNewList(name, price){
+            $('#cart-list').append(`
+            <tr>
+                <td class="cart-name">${name}</td>
+                <td>$${price}</td>
+                <td>+ -</td>
+            </tr>`);
+        }
+    </script>
+</body>
+
+</html>

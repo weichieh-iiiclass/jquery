@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>after</title>
+</head>
+<body>
+    <input id="toDoList" type="text"> 
+    <button>add</button>
+    <div class="container">
+        <div class="row">
+            <!-- 以ul為目標 -->
+            <!-- 舊的before在這裡 -->
+            <!-- 最新的before在這裡 -->
+            <ul>
+                <!-- prepend在這裡 -->
+                <li>item 1</li>
+                <li>item 2</li>
+                <!-- append在這裡 -->
+            </ul>
+            <!-- 最新的after在這裡 -->
+            <!-- 舊的after在這裡 -->
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        
+        // after是插在與ul同層的後面
+        $("ul").after("<li>item 3</li>"); 
+        $("ul").after("<li>item 3</li>"); 
+
+        
+        $('button').click(function(){
+            $("ul").after(`<li>${$('#toDoList').val()}</li>`); 
+
+        });
+    </script>
+
+</body>
+</html>
