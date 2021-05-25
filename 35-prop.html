@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prop</title>
+</head>
+<body>
+    <button class="btn btn-primary" id="setProp">set Prop</button>
+    <button class="btn btn-primary" id="removeProp">remove Prop</button>
+    <button class="btn btn-primary" id="checkProp">check Prop</button>
+    <input type="checkbox" name="" id="check1">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // prop可以取得屬性現在的狀態
+        // attr只能取得到有沒有這個屬性
+
+        $('#setProp').click(function(){
+            $('#check1').prop('checked', true);
+            $('#check1').prop('hidden', true);
+            $('#check1').prop('disabled', true); //不能勾checkbox(被禁止勾選)
+            $('#check1').prop('myProp123', 'hello');
+        });
+        $('#removeProp').click(function(){
+            $('#check1').prop('checked', false);
+            $('#check1').prop('hidden', false);
+            $('#check1').prop('disabled', false); 
+            $('#check1').removeProp('myProp123'); 
+        });
+        $('#checkProp').click(function(){
+            const myProp = $('#check1').prop('myProp123');
+            console.log('prop:', myProp);
+        })
+
+    </script>
+</body>
+</html>

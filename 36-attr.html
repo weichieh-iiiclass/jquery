@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr</title>
+</head>
+<body>
+    <button class="btn btn-primary" id="setAttr">set Attr</button>
+    <button class="btn btn-primary" id="removeAttr">remove Attr</button>
+    <button class="btn btn-primary" id="checkAttr">check Attr</button>
+    <input type="checkbox" name="" id="check1" checked>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // prop可以取得屬性現在的狀態
+        // attr只能取得到有沒有這個屬性
+
+        $('#removeAttr').click(function(){
+            $('#check1').removeAttr('checked');
+        });
+        $('#checkAttr').click(function(){
+            const myAttr = $('#check1').attr('checked');
+            console.log('prop:', myAttr);
+        });
+
+    </script>
+</body>
+</html>

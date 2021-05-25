@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>html text</title>
+    <style>
+        span {
+            color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button class="btn btn-primary" id="getText">get Text</button>
+        <button class="btn btn-primary" id="getHtml">get Html</button>
+        <button class="btn btn-primary" id="getHtmlText">get Html Text</button>
+
+    </div>
+    <h1 id="sample">Hello <span>World</span></h1>
+    <h1 id="result"></h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('#getText').click(function(){
+            // 設變數的寫法
+            // const sampleHTML = $('#sample').text();
+            // $('#result').text(sampleHTML);
+            $('#result').text($('#sample').text()); //取#sample text的值，放進#result       
+        });
+        $('#getHtml').click(function(){
+            $('#result').html($('#sample').html()); //取#sample html的值，放進#result       
+        });
+        $('#getHtmlText').click(function(){
+            $('#result').text($('#sample').html()); //把html以字串(text)輸出
+        });
+    </script>
+
+</body>
+
+
+</html>

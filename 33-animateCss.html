@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate css</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            padding: 10px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1 class="animate__animated animate__bounce">An animated element</h1>
+     -->
+     <div class="wrap">
+         <button>bounce</button>
+         <button>flash</button>
+
+         <div class="box animate__animated">box</div>
+     </div>
+
+     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+     <script>
+         $('button').click(function(){
+            // $('.box').toggleClass('animate__bounce animate__infinite');
+
+            let animate = 'animate__' + $(this).text();
+            $('.box').addClass(animate).one( 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend' ,function(){ 
+                //動畫結束之後觸發一次function
+                $(this).removeClass(animate);
+            });
+         });       
+     </script>
+</body>
+
+</html>
